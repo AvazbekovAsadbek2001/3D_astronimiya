@@ -1,0 +1,14 @@
+RewriteEngine on
+#Order allow,deny 
+#allow from 213.230.125.242
+#allow from 213.230.125.243
+#allow from 213.230.107.152
+#allow from 95.46.96.54
+
+# Redirect Trailing Slashes If Not A Folder...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^(.*)$ public/$1 [L]
+
