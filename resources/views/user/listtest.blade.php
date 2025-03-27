@@ -678,50 +678,26 @@
           </div>
           <div class="col-lg-4"></div>
           </div>
-        <div class="row">
-          <div class="col-lg-12 col-sm-6">
-            <div class="single_service">
-              <div class="single_service_inner">
-                <div class="single_service_icon" style="margin-right: 50px">
-                  <i style="font-weight: 900">1</i>
-                </div>
-                <div class="single_service_content">
-                  <h4>Cloud Databases</h4>
-                </div>
-              </div>
-            </div>
-            <div class="single_service">
-              <div class="single_service_inner">
-                <div class="single_service_icon">
-                  <i class="fa fa-folder-o"></i>
-                </div>
-                <div class="single_service_content">
-                  <h4>File Backups</h4>
-                </div>
-              </div>
-            </div>
-            <div class="single_service">
-              <div class="single_service_inner">
-                <div class="single_service_icon">
-                  <i class="fa fa-file-text-o"></i>
-                </div>
-                <div class="single_service_content">
-                  <h4>File Storage</h4>
-                </div>
-              </div>
-            </div>
-            <div class="single_service">
-              <div class="single_service_inner">
-                <div class="single_service_icon">
-                  <i class="fa fa-envelope-o"></i>
-                </div>
-                <div class="single_service_content">
-                  <h4>Email Servers</h4>
-                </div>
-              </div>
+          <div class="row">
+            <div class="col-lg-12 col-sm-6">
+              @if ($tests && !$tests->isEmpty())
+                  @foreach ($tests as $item)
+                      <div class="single_service">
+                          <div class="single_service_inner">
+                              <div class="single_service_icon" style="margin-right: 50px">
+                                  <i style="font-weight: 900">{{ $loop->iteration }}</i>
+                              </div>
+                              <div class="single_service_content">
+                                  <h4>{{ $item->title }}</h4>
+                              </div>
+                          </div>
+                      </div>
+                  @endforeach
+              @else
+                  <h1 align='center'>Test savollari mavjud emas!</h1>
+              @endif
             </div>
           </div>
-        </div>
       </div>
     </div>
     <!--==================================================-->

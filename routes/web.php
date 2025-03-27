@@ -26,9 +26,16 @@ Route::group(['middleware' => 'auth:student'], function(){
     Route::get('sections', [UserController::class, 'sections'])->name('sections');
 
     Route::get('subjects', [UserController::class, 'subjects'])->name('subjects');
-    Route::get('listtest', [UserController::class, 'tests'])->name('tests');
     //Mavzuni ko'rsatish
-    Route::get('subject/{id}', [IndexController::class, 'subject'])->name('subject');
+    Route::get('subject/{id}', [UserController::class, 'subject'])->name('subject');
     //Iframe bilan chiqarish uchun object chiqarish
-    Route::get('object/{id}', [IndexController::class, 'object'])->name('object');
+    Route::get('object/{id}', [UserController::class, 'object'])->name('object');
+
+
+    Route::get('listtest', [UserController::class, 'tests'])->name('tests');
+    //testni bajarish
+    Route::get('perform/{id}', [UserController::class, 'perform'])->name('test.perform');
+    //Natijani ko'rsatish
+    Route::get('confirtest/{test_id}', [UserController::class, 'confirmtest'])->name('confirmtest');
+
 });
