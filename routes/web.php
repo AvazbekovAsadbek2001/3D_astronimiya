@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,13 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::get('/login', [IndexController::class, 'login'])->name('login');
-Route::post('/login', [IndexController::class, 'auntificate'])->name('auntificate');
-Route::get('register', [IndexController::class, 'register'])->name('register');
-Route::post('saveregister', [IndexController::class, 'saveregister'])->name('saveregister');
-Route::post('/logout', [IndexController::class, 'logout'])->name('logout');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'auntificate'])->name('auntificate');
+Route::post('saveregister', [LoginController::class, 'saveregister'])->name('saveregister');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::group([], function(){
+Route::group(['middleware' => 'auth:student'], function(){
+    Route::get('sections', [UserController::class, 'sections'])->name('sections');
+
+    Route::get('subjects', [UserController::class, 'subjects'])->name('subjects');
+    Route::get('listtest', [UserController::class, 'tests'])->name('tests');
+    //Mavzuni ko'rsatish
     Route::get('subject/{id}', [IndexController::class, 'subject'])->name('subject');
+    //Iframe bilan chiqarish uchun object chiqarish
     Route::get('object/{id}', [IndexController::class, 'object'])->name('object');
 });

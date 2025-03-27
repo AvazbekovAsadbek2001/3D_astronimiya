@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Student;
+
 return [
 
     /*
@@ -40,6 +42,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'student' => [
+            'driver' => 'session', 
+            'provider' => 'students', 
+        ],
     ],
 
     /*
@@ -64,11 +70,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class, 
+        ],
     ],
 
     /*
@@ -87,7 +92,6 @@ return [
     | The throttle setting is the number of seconds a user must wait before
     | generating more password reset tokens. This prevents the user from
     | quickly generating a very large amount of password reset tokens.
-    |
     */
 
     'passwords' => [
@@ -96,6 +100,10 @@ return [
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'custom_users' => [
+            'driver' => 'eloquent',
+            'model' => Student::class,
         ],
     ],
 
