@@ -680,22 +680,44 @@
           </div>
           <div class="row">
             <div class="col-lg-12 col-sm-6">
-              @if ($tests && !$tests->isEmpty())
-                  @foreach ($tests as $item)
-                      <div class="single_service">
-                          <div class="single_service_inner">
-                              <div class="single_service_icon" style="margin-right: 50px">
-                                  <i style="font-weight: 900">{{ $loop->iteration }}</i>
-                              </div>
-                              <div class="single_service_content">
-                                  <h4>{{ $item->title }}</h4>
-                              </div>
-                          </div>
-                      </div>
-                  @endforeach
-              @else
-                  <h1 align='center'>Test savollari mavjud emas!</h1>
-              @endif
+                @if ($tests && !$tests->isEmpty())
+                    @foreach ($tests as $item)
+                        <div class="single_service">
+                            <a href="{{ route('test.perform', ['id' => $item['id']]) }}">
+                                <div class="single_service_inner">
+                                    <div class="single_service_icon" style="margin-right: 50px">
+                                        <i style="font-weight: 900">{{ $loop->iteration }}</i>
+                                    </div>
+                                    <div class="single_service_content" style="margin: 0px 0px 5px 0px;">
+                                        <h4>
+                                            <table width="90%">
+                                                <tr>
+                                                    <th>{{ $item['title'] ?? 'N/A' }}</th>
+                                                    <td>
+                                                        @if ($item['status'])
+                                                            Natija: {{ $item['result'] }}/{{ $item['count_question'] }}
+                                                        @else
+                                                            Test vaqti:
+                                                            @if ($item['time'] > 60)
+                                                                {{ intdiv($item['time'], 60) }} soat {{ $item['time']%60 }} minut
+                                                            @else
+                                                                {{ $item['time'] }} minut
+                                                            @endif
+                                                        @endif
+                                                    </td>
+                                                    <td>Savollar soni : {{ $item['count_question'] }}</td>
+                                                    <td></td>
+                                                </tr>
+                                            </table>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                @else
+                    <h1 align='center'>Test savollari mavjud emas!</h1>
+                @endif
             </div>
           </div>
       </div>
@@ -708,8 +730,7 @@
     <!----- Start Techno Footer Middle Area ----->
     <!--==================================================-->
     <div class="footer-middle pt-95"
-      style="background-image: url(assets/images/call-bg.png)"
-    >
+      style="background-image: url(assets/images/call-bg.png)">
       <div class="container">
         <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-12">

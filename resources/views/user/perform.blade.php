@@ -87,7 +87,7 @@
     <testy-body>
         <h1>Testni topshirish</h1>
         <div id="timer"></div>
-            <form method="POST" action="{{ route('user.submit') }}" id="testForm">
+            <form method="POST" action="{{ route('submit') }}" id="testForm">
                <input type="hidden" name="test_id" value="{{ $test->id }}">
                 @csrf
                 @foreach ($tests as $question)

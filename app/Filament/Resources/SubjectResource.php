@@ -59,10 +59,6 @@ class SubjectResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->label('Fan nomi')->searchable(),
-                TextColumn::make('description')->label('Tavsif')->limit(50),
-                TextColumn::make('file')->label('Fayl'),
-                TextColumn::make('libruary')->label('Kutubxona')->limit(50),
-                TextColumn::make('scripts')->label('Skriptlar')->limit(50),
                 TextColumn::make('created_at')->label('Yaratilgan vaqti')->dateTime(),
             ])
             ->filters([

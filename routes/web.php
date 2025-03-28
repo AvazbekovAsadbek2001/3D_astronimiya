@@ -33,9 +33,10 @@ Route::group(['middleware' => 'auth:student'], function(){
 
 
     Route::get('listtest', [UserController::class, 'tests'])->name('tests');
-    //testni bajarish
+    //Testni bajarish
     Route::get('perform/{id}', [UserController::class, 'perform'])->name('test.perform');
+    //Testni topshirish
+    Route::post('submit', [UserController::class, 'submit'])->name('submit');
     //Natijani ko'rsatish
     Route::get('confirtest/{test_id}', [UserController::class, 'confirmtest'])->name('confirmtest');
-
 });

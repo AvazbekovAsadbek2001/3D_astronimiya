@@ -1,43 +1,3 @@
-/*===============================================
-
-Template Name: techno - IT Solutions & Services HTML5 Template
-Version: 0.1
- 
-================================================*/
-
-/*TABLE OF CONTENTS*/
-/*=====================
-01. techno	Main Menu Area Css
-02. techno Slider Area Css
-03. techno Shape Images Css
-04. techno Breatcome Area Css
-05. techno Feature Area Css
-06. techno Service Area Css
-07. techno Section TitleNAV
-08. techno About  Area  Css
-09. techno Counter Area  Css
-10. techno Feature Box Area  Css
-11. techno Team Area  Css
-12. techno Pricing Area  Css
-13. techno Portfolio Area  Css
-14. techno Testimonial Area  Css
-15. techno Call Do Action Area  Css
-16. techno Blog Area  Css
-17. techno Subscribe Area CSS
-18. techno Subscribe Area CSS
-19. techno Contact Now Area Css 
-20. techno Contact Form Area Css
-21. techno GOOGLE MAP AREA CSS
-22. techno Middle Footer CSS
-23. techno Footer Bottom Area Css 
-24. techno BLOG DETAILS AREA CSS
-25. techno Team Details Area Css
-26. techno Skill Area Css
-27. techno Error Page Area Css
-25. techno Team Details Area Css
-
-=======================*/
-/*logo*/
 .sticky img.down {
   display: none;
 }
@@ -1677,7 +1637,7 @@ right:30px;
 }
 
 /*=========================================
-    Slider20 Home Digital Agency 
+    Slider20 Home Digital Agency
 ============================================*/
 
 .home-section {
@@ -1824,7 +1784,7 @@ right:30px;
 }
 
 /*=======================================
---< Digital SEO Hero Section -->  
+--< Digital SEO Hero Section -->
 =========================================*/
 
 .hero2.hero-section {
@@ -6848,7 +6808,7 @@ span.fill.my-class2 {
   color: #f05d8a;
 }
 
-/* End Upper Class 
+/* End Upper Class
 ==========================*/
 
 .service-single-box:hover {
@@ -6865,7 +6825,7 @@ span.fill.my-class2 {
   margin-left: 0;
 }
 
-/* Service Style Sixteen 
+/* Service Style Sixteen
 ====================================*/
 
 .style-16.service-section {

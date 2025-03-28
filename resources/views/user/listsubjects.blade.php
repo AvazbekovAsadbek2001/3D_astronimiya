@@ -1,58 +1,3 @@
-@extends('layout.main')
-@section('css')
-@endsection
-@section('section')
-    <!--==================================================-->
-    <!----- Start Techno Service Area ----->
-    <!--==================================================-->
-    <div class="service_area bg_color2 pt-80 pb-70">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="section_title text_left mb-55">
-                <div class="section_main_title">
-                  <h1>Barcha darslar <span> ro'yxati </span></h1>
-                </div>
-                <div class="em_bar">
-                  <div class="em_bar_bg"></div>
-                </div>
-                <div class="section_content_text pr-70 pt-4">
-                  <p>
-                      Astronomiya fanlari orqali koinot sirlarini o'rganing. Yulduzlar, sayyoralar va galaktikalar haqidagi bilimlarni chuqurlashtirish uchun ushbu darslar sizga yo'l ochadi.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4"></div>
-            </div>
-          <div class="row">
-            <div class="col-lg-12 col-sm-6">
-              @if ($subjects && !$subjects->isEmpty())
-                  @foreach ($subjects as $item)
-                      <div class="single_service">
-                          <a href="{{ route('subject', ['id' => $item->id]) }}">
-                              <div class="single_service_inner">
-                                  <div class="single_service_icon" style="margin-right: 50px">
-                                      <i style="font-weight: 900">{{ $loop->iteration }}</i>
-                                  </div>
-                                  <div class="single_service_content">
-                                      <h4>{{ $item->name }}</h4>
-                                  </div>
-                              </div>
-                          </a>
-                      </div>
-                  @endforeach
-              @else
-                  <h1 align='center'>Mavzular mavjud emas!</h1>
-              @endif
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--==================================================-->
-      <!----- End Techno Service Area ----->
-      <!--==================================================-->
-@endsection
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -765,8 +710,7 @@
     <!----- Start Techno Footer Middle Area ----->
     <!--==================================================-->
     <div class="footer-middle pt-95"
-      style="background-image: url(assets/images/call-bg.png)"
-    >
+      style="background-image: url(assets/images/call-bg.png)">
       <div class="container">
         <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-12">

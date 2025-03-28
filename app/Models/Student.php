@@ -11,4 +11,13 @@ class Student extends Model implements Authenticatable
     use HasFactory,AuthenticatableTrait;
 
     protected $fillable = ['last_name', 'first_name', 'name', 'password'];
+
+    public function testanswer(){
+        return $this->hasMany(Test_answer::class);
+    }
+
+    public function testuserAnswers()
+    {
+        return $this->hasMany(Testuser_answer::class, 'student_id');
+    }
 }
