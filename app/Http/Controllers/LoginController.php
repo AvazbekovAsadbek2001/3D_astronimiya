@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function login(){
-        return view('auth.login');
+        if (Auth::guard('student')->check())
+            return redirect()->route('sections');
+        else
+            return view('auth.login');
     }
 
     public function auntificate(Request $request){
@@ -31,13 +34,13 @@ class LoginController extends Controller
                 'last_name' => 'required',
                 'first_name' => 'required',
                 'name' => 'required',
-                'password' => 'required',    
+                'password' => 'required',
             ]);
 
             $data['password'] =  Hash::make($request->password);
-    
+
             $student = Student::create($data);
-    
+
             if ($student)
                 return redirect()->back()->with('success', 'Student created successfully');
         } catch (\Throwable $th) {
