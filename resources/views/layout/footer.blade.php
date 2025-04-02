@@ -7,7 +7,9 @@
         <div class="col-lg-3 col-md-6 col-sm-12">
           <div class="widget widgets-company-info">
             <div class="footer-bottom-logo pb-40">
-              <img src="assets/images/logo.png" alt="Astronomiya logotipi" />
+                <a href="{{ route('index') }}" class="logo">
+                    <h4 style="color: white"><b>Astranomiya</b></h4>
+                </a>
             </div>
             <div class="company-info-desc">
               <p>
