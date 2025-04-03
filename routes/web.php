@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------  s-------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -30,7 +30,6 @@ Route::group(['middleware' => 'auth:student'], function(){
     Route::get('subject/{id}', [UserController::class, 'subject'])->name('subject');
     //Iframe bilan chiqarish uchun object chiqarish
     Route::get('object/{id}', [UserController::class, 'object'])->name('object');
-
 
     Route::get('listtest', [UserController::class, 'tests'])->name('tests');
     //Testni bajarish

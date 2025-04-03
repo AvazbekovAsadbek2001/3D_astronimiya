@@ -27,15 +27,36 @@
                   <li>
                     <a href="#"><i class="fa-solid fa-user"></i>&nbsp;&nbsp; {{ Auth::guard('student')->user()->first_name }} {{ Auth::guard('student')->user()->last_name }}</a>
                     <ul>
-                      <li><a href="contact-2.html"><i class="fa-solid fa-cog"></i>&nbsp;&nbsp;Sozlamalar</a></li>
+                      <li><a data-bs-toggle="modal" data-bs-target="#setting" style="cursor: pointer"><i class="fa-solid fa-cog"></i>&nbsp;&nbsp;Sozlamalar</a></li>
                       <li><a href="contact-3.html"><i class="fa-solid fa-sign-out-alt"></i>&nbsp;&nbsp;Chiqish</a></li>
                     </ul>
                   </li>
               </ul>
+
             </div>
           </div>
         </div>
       </div>
+    <div class="modal fade" id="setting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Malumotlarini o'zgartirish</h5>
+            <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label class="form-label"  style="color: black"><b>Familiya :</b> </label>
+                <input type="text" name="" class="form-control" value="{{ Auth::guard('student')->user()->last_name }}">
+                <label class="form-label"  style="color: black"><b> Ismi : </b></label>
+                <input type="text" name="" class="form-control" value="{{ Auth::guard('student')->user()->first_name }}">
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiqish</button>
+            <button type="button" class="btn btn-primary">Saqlash</button>
+            </div>
+        </div>
+        </div>
+    </div>
 
       <!-- Techno Mobile Menu Area -->
       <div class="mobile-menu-area d-sm-block d-md-block d-lg-none">
