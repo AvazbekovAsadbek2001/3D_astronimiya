@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Answer;
 use App\Models\Question;
+use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Test;
 use App\Models\Test_answer;
@@ -123,5 +124,17 @@ class UserController extends Controller
             ->get();
 
         return view('user.confirmtest', compact('test_useranswer','testanswer'));
+    }
+
+    public function setting(Request $request){
+        $data = $request->validate([
+            'last_name' => 'required',
+            'first_name' => 'required'
+        ]);
+        Student::find(Auth::guard('student')->user()->id)->update([
+            'last_name' => $data['last_name'],
+            'first_name' => $data['first_name']
+        ]);
+        return redirect()->back();
     }
 }

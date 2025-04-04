@@ -20,9 +20,10 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'auntificate'])->name('auntificate');
 Route::post('saveregister', [LoginController::class, 'saveregister'])->name('saveregister');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'auth:student'], function(){
+    Route::post('savesetting', [UserController::class, 'setting'])->name('setting');
     Route::get('sections', [UserController::class, 'sections'])->name('sections');
 
     Route::get('subjects', [UserController::class, 'subjects'])->name('subjects');

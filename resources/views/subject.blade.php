@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Three.js Directional Light & Animation Controls</title>
+  <title>Mavzular</title>
   <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -146,7 +146,13 @@
   </style>
 </head>
 <body>
-  <!-- Directional Light toggle tugmasi -->
+  <div id="loader" class="loader">
+      <div class="spinner"></div>
+  </div>
+
+  <!-- Sizning asosiy kontentingiz -->
+  <div id="content" style="display: none;">
+      <!-- Directional Light toggle tugmasi -->
   <button id="toggleLight">DL</button>
 
   <!-- Animatsiya boshqaruv paneli -->
@@ -163,24 +169,25 @@
 
   <!-- Chap tomondagi info panel: mavzu nomi va mavzu matni -->
   <div id="infoPanel">
-    <!-- Mavzu nomi: header qismi ichida text-to-speech tugmalari qo'shildi -->
-    <div id="infoHeader">
-      <span>{{ $subject->name }}</span>
-      <div id="textControls">
-        <!-- Ikonali tugmalar: o'qish, pauza/davom ettirish va qayta o'qish -->
-        <button id="readText" title="Matnni o'qish">🔊</button>
-        <button id="pauseText" title="To'xtatish/Davom ettirish">⏸</button>
-        <button id="replayText" title="Qayta boshlash">🔄</button>
+      <!-- Mavzu nomi: header qismi ichida text-to-speech tugmalari qo'shildi -->
+      <div id="infoHeader">
+        <span>{{ $subject->name }}</span>
+        <div id="textControls">
+          <!-- Ikonali tugmalar: o'qish, pauza/davom ettirish va qayta o'qish -->
+          <button id="readText" title="Matnni o'qish">🔊</button>
+          <button id="pauseText" title="To'xtatish/Davom ettirish">⏸</button>
+          <button id="replayText" title="Qayta boshlash">🔄</button>
+        </div>
       </div>
+      <!-- Mavzu matni: avval yopiq bo‘ladi -->
+      <div id="infoContent">
+        <p>
+          {{ $subject->description }}
+        </p>
+      </div>
+      <!-- Resizer: panel kengligini o'zgartirish uchun -->
+      <div class="resizer"></div>
     </div>
-    <!-- Mavzu matni: avval yopiq bo‘ladi -->
-    <div id="infoContent">
-      <p>
-        {{ $subject->description }}
-      </p>
-    </div>
-    <!-- Resizer: panel kengligini o'zgartirish uchun -->
-    <div class="resizer"></div>
   </div>
 
   <script type="module">

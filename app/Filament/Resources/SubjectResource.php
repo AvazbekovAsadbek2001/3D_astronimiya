@@ -40,7 +40,6 @@ class SubjectResource extends Resource
                 FileUpload::make('file')
                     ->columnSpanFull()
                     ->label('Fayl')
-                    ->disk('public')
                     ->directory('subjects')
                     ->required(),
                 Textarea::make('libruary')
