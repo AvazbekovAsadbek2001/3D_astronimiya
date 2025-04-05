@@ -146,12 +146,6 @@
   </style>
 </head>
 <body>
-  <div id="loader" class="loader">
-      <div class="spinner"></div>
-  </div>
-
-  <!-- Sizning asosiy kontentingiz -->
-  <div id="content" style="display: none;">
       <!-- Directional Light toggle tugmasi -->
   <button id="toggleLight">DL</button>
 
@@ -187,16 +181,11 @@
       </div>
       <!-- Resizer: panel kengligini o'zgartirish uchun -->
       <div class="resizer"></div>
-    </div>
-  </div>
+   </div>
 
   <script type="module">
     {!! $subject->libruary !!}
-    // import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-    // import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
-    // import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
-    // Constants
     const MODEL_PATH = '{{ asset("storage/".$subject->file) }}';
 
     {!! $subject->scripts !!}

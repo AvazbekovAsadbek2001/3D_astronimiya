@@ -24,7 +24,7 @@ class Test_answer extends Model
         return $this->hasMany(Testuser_answer::class, 'test_answer_id');
     }
 
-    public function answeruser($question_id){
+    public function question($question_id){
         return Testuser_answer::where('test_answer_id', $this->id)
             ->where('student_id', $this->student_id)
             ->where('question_id', $question_id)

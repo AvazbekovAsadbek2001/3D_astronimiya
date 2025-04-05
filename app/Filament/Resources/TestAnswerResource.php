@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\TestAnswerResource\Pages;
 use App\Filament\Resources\TestAnswerResource\RelationManagers;
+use App\Filament\Resources\TestAnswerResource\RelationManagers\QuestionRelationManager;
 use App\Models\Test_answer;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -87,7 +88,7 @@ class TestAnswerResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            QuestionRelationManager::class
         ];
     }
 

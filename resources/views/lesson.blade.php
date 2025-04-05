@@ -19,17 +19,17 @@
             <div class="h5 mb-0 ms-2 text-white fw-bold d-none d-md-inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Darslar ro'yhati</div>
         </div>
 
-        <div class="dropdown ms-auto">
-            <button class="btn btn-light dropdown-toggle d-flex align-items-center" type="button" id="profileDropdown" data-bs-toggle="dropdown">
-                <img src="https://via.placeholder.com/35" class="rounded-circle me-2">
-                <span class="d-none d-md-inline">John Doe</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profil</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Sozlamalar</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i>Chiqish</a></li>
-            </ul>
+        <div class="ms-auto d-flex gap-2">
+            <a href="{{ route('sections') }}" style="text-decoration: none">
+                <button class="btn btn-light d-flex align-items-center" type="button" id="sectionDropdown">
+                    <span class="d-none d-md-inline"><i class="bi bi-grid me-2"></i>Bo'limlar</span>
+                </button>
+            </a>
+            <a href="{{ route('logout') }}" style="text-decoration: none">
+                <button class="btn btn-light d-flex align-items-center" type="button" id="profileDropdown">
+                    <span class="d-none d-md-inline"><i class="bi bi-box-arrow-right me-2"></i>Chiqish</span>
+                </button>
+            </a>
         </div>
     </nav>
 
@@ -48,6 +48,7 @@
                 <iframe src="{{ route('object',['id' => $lesson->id]) }}" frameborder="0" width="100%" style="height: 80vh;"></iframe>
             </div>
         </div>
+        <marquee style="color: red">Diqqat tizim test holatida ishlamoqda.Avtomatik so'zlatkichni ishga tushurish uchun Microsoft Edge brauzeridan foydalanishingizni so'rayman.Tizimdan foydalanganingiz uchun tashakkur!!!</marquee>
     </div>
 
     <footer>

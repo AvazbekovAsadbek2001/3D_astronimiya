@@ -87,73 +87,78 @@
     <testy-body>
         <h1>Testni topshirish</h1>
         <div id="timer"></div>
-            <form method="POST" action="{{ route('submit') }}" id="testForm">
-               <input type="hidden" name="test_id" value="{{ $test->id }}">
-                @csrf
-                @foreach ($tests as $question)
-                    <div class="question">
-                        <h3>{{ $question->question }}</h3>
-                        @foreach ($question->answers as $answer)
-                            <label>
-                                <input type="radio" name="answers[{{ $question->id }}]" value="{{ $answer->id }}">
-                                {{ $answer->answer }}
-                            </label>
-                        @endforeach
+        <form method="POST" action="{{ route('submit') }}" id="testForm">
+            <input type="hidden" name="test_id" value="{{ $test->id }}">
+            @csrf
+            @foreach ($tests as $question)
+                <div class="question">
+                    <h3>{{ $question->question }}</h3>
+                    @foreach ($question->answers as $answer)
+                        <label>
+                            <input type="radio" name="answers[{{ $question->id }}]" value="{{ $answer->id }}">
+                            {{ $answer->answer }}
+                        </label>
+                    @endforeach
+                    <input type="hidden" name="answers[{{ $question->id }}]" value="0">
+                </div>
+            @endforeach
+            <center><button type="submit">Testni yakunlash</button></center>
+        </form>
+        <script>
+            let timeLimit = {{ $test->time }} * 60;
+            let timerElement = document.getElementById('timer');
+            let testForm = document.getElementById('testForm');
+            let isSubmitted = false;
 
-                        <input type="hidden" name="answers[{{ $question->id }}]" value="0">
-                    </div>
-                @endforeach
-                <center><button type="submit">Testni yakunlash</button></center>
-            </form>
-            <script>
-                let timeLimit = {{ $test->time }} * 60;
-                let timerElement = document.getElementById('timer');
-                let testForm = document.getElementById('testForm');
-                let isSubmitted = false;
+            function updateTimer() {
+                let minutes = Math.floor(timeLimit / 60);
+                let seconds = timeLimit % 60;
+                timerElement.innerText = `Qolgan vaqt: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
-                function updateTimer() {
-                    let minutes = Math.floor(timeLimit / 60);
-                    let seconds = timeLimit % 60;
-                    timerElement.innerText = `Qolgan vaqt: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-                    if (timeLimit <= 0 && !isSubmitted) {
-                        submitFormWithValues();
-                    } else if (timeLimit > 0) {
-                        timeLimit--;
-                        setTimeout(updateTimer, 1000);
-                    }
+                if (timeLimit <= 0 && !isSubmitted) {
+                    submitFormWithValues();
+                } else if (timeLimit > 0) {
+                    timeLimit--;
+                    setTimeout(updateTimer, 1000);
                 }
+            }
 
-                updateTimer();
+            updateTimer();
 
-                function submitFormWithValues() {
-                    if (isSubmitted) return;
-                    isSubmitted = true;
+            function submitFormWithValues() {
+                if (isSubmitted) return;
+                isSubmitted = true;
 
-                    document.querySelectorAll('.question').forEach(question => {
-                        let questionInputs = question.querySelectorAll('input[type="radio"]');
-                        let hiddenInput = question.querySelector('input[type="hidden"]');
-                        let selectedAnswer = question.querySelector('input[type="radio"]:checked');
+                document.querySelectorAll('.question').forEach(question => {
+                    let questionInputs = question.querySelectorAll('input[type="radio"]');
+                    let hiddenInput = question.querySelector('input[type="hidden"]');
+                    let selectedAnswer = question.querySelector('input[type="radio"]:checked');
+                    questionInputs.forEach(input => input.disabled = true);
 
-                        if (selectedAnswer) {
-                            hiddenInput.value = selectedAnswer.value;
-                        } else {
-                            hiddenInput.value = "0";
-                        }
-                    });
-
-                    testForm.submit();
-                }
-
-                window.addEventListener('beforeunload', function (e) {
-                    if (timeLimit > 0 && !isSubmitted) {
-                        submitFormWithValues();
-                        let confirmationMessage = 'Sahifadan chiqsangiz, javoblaringiz jo‘natiladi. Davom etasizmi?';
-                        (e || window.event).returnValue = confirmationMessage;
-                        return confirmationMessage;
+                    if (selectedAnswer) {
+                        hiddenInput.value = selectedAnswer.value;
+                    } else {
+                        hiddenInput.value = "0";
                     }
                 });
-            </script>
-        </testy-body>
+
+                testForm.submit();
+            }
+
+            window.addEventListener('beforeunload', function (e) {
+                if (timeLimit > 0 && !isSubmitted) {
+                    submitFormWithValues();
+                    let confirmationMessage = 'Sahifadan chiqsangiz, javoblaringiz jo‘natiladi. Davom etasizmi?';
+                    (e || window.event).returnValue = confirmationMessage;
+                    return confirmationMessage;
+                }
+            });
+
+            testForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Default submitni to'xtatamiz
+                submitFormWithValues();
+            });
+        </script>
+    </testy-body>
 </body>
 </html>
