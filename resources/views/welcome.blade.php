@@ -130,16 +130,13 @@
                 </a>
                 <ul class="clearfix">
                     <li>
-                        <a href="#">Asosiy sahifa</a>
+                        <a href="{{ route('index') }}">Asosiy sahifa</a>
                     </li>
                     <li>
-                        <a href="#">Yangiliklar</a>
+                        <a href="{{ route('reja') }}">Ilmiy ishlar ro'yhati</a>
                     </li>
                     <li>
-                        <a href="#">O'quv materiallar</a>
-                    </li>
-                    <li>
-                        <a href="#">Testlar va topshiriqlar</a>
+                        <a href="#">Sayt haqida</a>
                     </li>
                     <li>
                         <a href="#">Bo'limlar</a>
@@ -518,10 +515,91 @@
                 </div>
             </div>
         </div>
-        <div class="em-about-shape">
-            <div class="shape-thumb">
-                <img src="assets/images/shape-ab.png" alt=""/>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="section_title text_left mb-30 mt-3 wow fadeInRight" data-wow-delay=".4">
+                    <div class="section_main_title upper">
+                        <h1>Lohiya yetakchisi haqida <span>ma'lumot</span></h1>
+                    </div>
+                    <div class="section_content_text upper">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quidem magnam, ad, commodi quia repudiandae esse nobis quae odio voluptatum provident suscipit totam consectetur veritatis corporis temporibus error libero laboriosam.
+                        </p>
+                    </div>
+                </div>
+                <div class="em-about-border-box wow fadeInLeft" data-wow-delay=".5">
+                    <div class="row em-border">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="em-about-icon-box">
+                                <div class="em-about-icon">
+                                    <img src="assets/images/icon.png" alt=""/>
+                                </div>
+                                <div class="em-about-title">
+                                    <h3>Moneyback Gurentee</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div
+                                class="em-about-icon-box wow fadeInDown"
+                                data-wow-delay=".6"
+                            >
+                                <div class="em-about-icon">
+                                    <img src="assets/images/icon1.png" alt=""/>
+                                </div>
+                                <div class="em-about-title">
+                                    <h3>
+                                        Technical <br/>
+                                        Support
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row wow fadeInRight" data-wow-delay=".7">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="section_button2 mt-40">
+                            <div class="abou-button1">
+                                <a href="#">
+                                    Bog'lanish
+                                    <i class="bi bi-arrow-right" aria-hidden="true"></i
+                                    ></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-7">
+                        <div class="em-about-icon-box mt-40">
+                            <div class="em-about-icons">
+                                <i class="flaticon-call" aria-hidden="true"></i>
+                            </div>
+                            <div class="em-about-title2">
+                                <p>Telfon raqami:</p>
+                                <h3>+98 321 (7690) 326</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="col-lg-6 col-md-6">
+                <div class=" up wow fadeInDown" data-wow-delay=".3">
+                    <div class="single_about_thumb_inner">
+                        <img src="assets/images/about.png" alt=""/>
+                    </div>
+                    <div class="em-about-shape-thumb">
+                        <div class="em-about-thmub-inner">
+                            <img src="assets/images/about-peple.png" alt=""/>
+                        </div>
+                        <div class="em-about-thmub-inner1">
+                            <img src="assets/images/circle1.png" alt=""/>
+                        </div>
+                        <div class="em-about-thmub-inner2 rotateme">
+                            <img src="assets/images/circle.png" alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
