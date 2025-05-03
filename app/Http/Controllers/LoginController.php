@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Region;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,8 +13,10 @@ class LoginController extends Controller
     public function login(){
         if (Auth::guard('student')->check())
             return redirect()->route('sections');
-        else
-            return view('auth.login');
+        else{
+            $region = Region::all();
+            return view('auth.login',compact('region'));
+        }
     }
 
     public function auntificate(Request $request){
@@ -33,6 +36,10 @@ class LoginController extends Controller
             $data = $request->validate([
                 'last_name' => 'required',
                 'first_name' => 'required',
+                'region_id' => 'required',
+                'district_id' => 'required',
+                'school_name' => 'required',
+                'class_name' => 'required',
                 'name' => 'required',
                 'password' => 'required',
             ]);
@@ -41,8 +48,11 @@ class LoginController extends Controller
 
             $student = Student::create($data);
 
-            if ($student)
-                return redirect()->back()->with('success', 'Student created successfully');
+            if (Auth::guard('student')->attempt(['name' => $student->name, 'password' => $request->password])) {
+                return redirect()->route('sections');
+            }
+
+            return redirect()->back()->with(['error' => 'Login yoki parolda xatolik bor!']);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }

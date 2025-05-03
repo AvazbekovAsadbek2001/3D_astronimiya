@@ -11,18 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('districts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('last_name'); //familiya
-            $table->string('first_name'); //ismi
             $table->integer('region_id')->unsigned();
             $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade');
-            $table->integer('district_id')->unsigned();
-            $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
-            $table->string('school_name');
-            $table->string('class_name');
-            $table->string('name');
-            $table->string('password');
+            $table->string('name_uz');
+            $table->string('name_oz');
+            $table->string('name_ru');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('districts');
     }
 };

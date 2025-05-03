@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -41,3 +42,5 @@ Route::group(['middleware' => 'auth:student'], function(){
     //Natijani ko'rsatish
     Route::get('confirtest/{test_id}', [UserController::class, 'confirmtest'])->name('confirmtest');
 });
+
+Route::post('getdistrict', [AjaxController::class, 'getdistrict'])->name('ajax.district');
