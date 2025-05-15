@@ -342,52 +342,6 @@
         });
     </script>
     </div>
-    <div id="mobile">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-      <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 col-md-6">
-                <div class="card bg-primary bg-opacity-25 border-0 p-4">
-                    <div class="card-body">
-                        <h2 class="text-center fw-bold mb- text-white">Kirish</h2>
-                        <form action="{{ route('auntificate') }}" method="post" class="needs-validation" novalidate>
-                            @csrf
-                            <div class="mb-3">
-                                <label for="username" class="form-label text-white">Foydalanuvchi nomi</label>
-                                <input type="text" name="name" class="form-control" id="username" placeholder="Foydalanuvchi nomi" required>
-                                <div class="invalid-feedback">
-                                    Iltimos, foydalanuvchi nomini kiriting.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label text-white">Parol</label>
-                                <input type="password" name="password" class="form-control" id="password" placeholder="Parol" required>
-                                <div class="invalid-feedback">
-                                    Iltimos, parolni kiriting.
-                                </div>
-                            </div>
-                            <div class="d-grid">
-                                <button class="btn btn-danger" type="submit">Kirish</button>
-                            </div>
-                            <div class="text-center mt-2">
-                                <p class="text-white mb-0"><a href="#" target="{{ route('login') }}" class="text-white fw-bold">Sayt orqali ro'yxatdan o'ting</a></p>
-                            </div>
-                          </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-  <script> 
-      if (navigator.userAgent.includes("Windows") || navigator.userAgent.includes("Linux")) {
-          document.getElementById('web').style.display = "block";
-          document.getElementById('mobile').style.display = "none";
-      } else if (navigator.userAgent.includes("Android")) {
-          document.getElementById('web').style.display = "none";
-          document.getElementById('mobile').style.display = "block";
-      }
-  </script>
+  
 </body>
 </html>

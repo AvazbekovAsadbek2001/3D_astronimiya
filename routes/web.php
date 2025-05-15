@@ -28,6 +28,9 @@ Route::group(['middleware' => 'auth:student'], function(){
     Route::post('savesetting', [UserController::class, 'setting'])->name('setting');
     Route::get('sections', [UserController::class, 'sections'])->name('sections');
 
+    Route::get('/categories', [UserController::class , 'categories'])->name('categories');
+    Route::get('/{category_id}/books', [UserController::class, 'books'])->name('books');
+
     Route::get('subjects', [UserController::class, 'subjects'])->name('subjects');
     //Mavzuni ko'rsatish
     Route::get('subject/{id}', [UserController::class, 'subject'])->name('subject');

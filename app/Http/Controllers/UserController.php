@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Book;
+use App\Models\Category_book;
 use App\Models\Question;
 use App\Models\Student;
 use App\Models\Subject;
@@ -136,5 +138,15 @@ class UserController extends Controller
             'first_name' => $data['first_name']
         ]);
         return redirect()->back();
+    }
+
+    public function categories(){
+        $categories = Category_book::all();
+        return view('user.categorybook', compact('categories'));
+    }
+
+    public function books(Request $request){
+        $books = Book::where('category_book_id', $request->category_id)->get();
+        return view('user.books', compact('books'));
     }
 }

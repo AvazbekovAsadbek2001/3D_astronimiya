@@ -8660,6 +8660,8 @@ p.desc-text {
 }
 .style-four .single_portfolio_thumb1 img {
   width: 100%;
+  min-height: 280px;
+  object-fit: contain;
 }
 /*portfolio content*/
 .style-four .single_portfolio_content_inner {

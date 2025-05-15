@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="col-lg-12 col-md-6 col-sm-12">
             <div class="service_style_eleven wow flipInY" data-wow-delay="0ms" data-wow-duration="2500ms">
               <a href="{{ route('subjects') }}">
                 <div class="single_service_style_eleven">
@@ -67,6 +67,22 @@
                     </div>
                     <div class="service_style_eleven_title pb-4">
                     <h4>Testlar ro'yhati</h4>
+                    </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="service_style_eleven wow flipInY" data-wow-delay="0ms" data-wow-duration="2500ms">
+              <a href="{{ route('categories') }}">
+                <div class="single_service_style_eleven">
+                    <div class="service_style_eleven_icon">
+                    <div class="icon">
+                        <i class="flaticon-code"></i>
+                    </div>
+                    </div>
+                    <div class="service_style_eleven_title pb-4">
+                    <h4>Darsliklar va kitoblar</h4>
                     </div>
                 </div>
               </a>
