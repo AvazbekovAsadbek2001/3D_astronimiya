@@ -563,7 +563,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class=" up wow fadeInDown" data-wow-delay=".3">
                             <div class="single_about_thumb_inner">
-                                <img src="assets/images/about.png" alt=""/>
+                                <img src="images/domla.jpg" alt=""/>
                             </div>
                             <div class="em-about-shape-thumb"></div>
                         </div>

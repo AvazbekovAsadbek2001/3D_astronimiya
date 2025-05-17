@@ -26,7 +26,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('student')->attempt($request->only('name', 'password')))
-            return redirect()->route('sections');
+            return redirect()->route('index');
 
         return redirect()->back()->with(['error' => 'Login yoki parolda xatolik bor!']);
     }
