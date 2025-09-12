@@ -5,10 +5,11 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SubjectResource\Pages;
 use App\Filament\Resources\SubjectResource\RelationManagers;
 use App\Models\Subject;
-use Filament\Forms;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -31,6 +32,13 @@ class SubjectResource extends Resource
                     ->label('Fan nomi')
                     ->columnSpanFull()
                     ->unique()
+                    ->required(),
+                TextInput::make('sort')
+                    ->label('Tartib raqami')
+                    ->numeric()
+                    ->required(),
+                Toggle::make('is_active')
+                    ->label('Holat')
                     ->required(),
                 Textarea::make('description')
                     ->columnSpanFull()

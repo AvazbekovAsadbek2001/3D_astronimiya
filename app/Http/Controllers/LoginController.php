@@ -66,4 +66,33 @@ class LoginController extends Controller
         
         return redirect('/login');
     }
+
+    public function api_login(Request $request){
+        $credentials = $request->validate([
+            'name'    => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (!$token = auth('api')->attempt($credentials)) {
+            return response()->json(['message' => 'Login yoki parol xato'], 401);
+        }
+
+        return $this->respondWithToken($token);
+    }
+
+    public function api_logout(){
+        auth('api')->logout();
+        return response()->json(['message' => 'Muvaffaqiyatli chiqdingiz']);
+    }
+
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type'   => 'bearer',
+            'expires_in'   => auth('api')->factory()->getTTL() * 60,
+        ]);
+    }
+
+    
 }

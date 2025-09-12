@@ -34,8 +34,6 @@ Route::group(['middleware' => 'auth:student'], function(){
     Route::get('subjects', [UserController::class, 'subjects'])->name('subjects');
     //Mavzuni ko'rsatish
     Route::get('subject/{id}', [UserController::class, 'subject'])->name('subject');
-    //Iframe bilan chiqarish uchun object chiqarish
-    Route::get('object/{id}', [UserController::class, 'object'])->name('object');
 
     Route::get('listtest', [UserController::class, 'tests'])->name('tests');
     //Testni bajarish
@@ -45,5 +43,7 @@ Route::group(['middleware' => 'auth:student'], function(){
     //Natijani ko'rsatish
     Route::get('confirtest/{test_id}', [UserController::class, 'confirmtest'])->name('confirmtest');
 });
+
+Route::get('object/{id}', [UserController::class, 'object'])->name('object');
 
 Route::post('getdistrict', [AjaxController::class, 'getdistrict'])->name('ajax.district');

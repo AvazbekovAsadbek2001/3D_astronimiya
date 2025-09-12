@@ -5,8 +5,9 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
-class Student extends Model implements Authenticatable
+class Student extends Model implements Authenticatable, JWTSubject
 {
     use HasFactory,AuthenticatableTrait;
 
@@ -19,5 +20,15 @@ class Student extends Model implements Authenticatable
     public function testuserAnswers()
     {
         return $this->hasMany(Testuser_answer::class, 'student_id');
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims(): array
+    {
+        return [];
     }
 }

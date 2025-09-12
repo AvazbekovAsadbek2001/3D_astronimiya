@@ -103,9 +103,9 @@ class UserController extends Controller
         $result = Test_answer::where('test_id', $request->id)
             ->where('student_id', Auth::guard('student')->user()->id)
             ->count();
-            if ($result > 0) {
-                return redirect()->route('confirmtest',['test_id' => $request->id]);
-            } else{
+        if ($result > 0) {
+            return redirect()->route('confirmtest',['test_id' => $request->id]);
+        } else{
             $count = Test::find($request->id)->count_question;
             $test = Test::find($request->id);
             $tests= Question::where('test_id', $request->id)

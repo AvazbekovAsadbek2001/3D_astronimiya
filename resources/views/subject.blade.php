@@ -143,6 +143,13 @@
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
     }
+
+      @media (max-width: 768px) 
+      {
+        #infoPanel {
+          display: none;
+        }
+      }
   </style>
 </head>
 <body>

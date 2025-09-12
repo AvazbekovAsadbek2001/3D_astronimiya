@@ -18,6 +18,7 @@ return [
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
+        
     ],
 
     /*
@@ -45,6 +46,10 @@ return [
         'student' => [
             'driver' => 'session', 
             'provider' => 'students', 
+        ],
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'students',
         ],
     ],
 

@@ -442,7 +442,7 @@
                         
                         </div>
                         <h2 align="center">
-                            <a href="portfolio-details.html">Vazifalar va mashqlar</a>
+                            <a href="{{ route('tests') }}">Vazifalar va mashqlar</a>
                         </h2>
                         </div>
                     </div>
@@ -450,27 +450,27 @@
                 </div>
                 <div class="col-lg-4 col-md-6 grid-item cemes">
                     <div class="single_portfolio wow fadeInRight" data-wow-delay=".7">
-                    <div class="single_portfolio_inner">
-                        <div class="single_portfolio_thumb1">
-                        <a href="#"
-                            ><img src="png.images/unnamed.png" alt=""
-                        /></a>
+                        <div class="single_portfolio_inner">
+                            <div class="single_portfolio_thumb1">
+                            <a href="#"
+                                ><img src="png.images/unnamed.png" alt=""
+                            /></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="single_portfolio_content1">
-                        <div class="single_portfolio_icon">
-                        <a
-                            class="portfolio-icon"
-                            href="{{ route('categories') }}"
-                            ><i class="bi bi-arrow-right"></i>
-                        </a>
+                        <div class="single_portfolio_content1">
+                            <div class="single_portfolio_icon">
+                            <a
+                                class="portfolio-icon"
+                                href="{{ route('categories') }}"
+                                ><i class="bi bi-arrow-right"></i>
+                            </a>
+                            </div>
+                            <div class="single_portfolio_content_inner">
+                            <h2 align="center">
+                                <a href="{{ route('categories') }}">Astronomiya bo'yicha darsliklar</a>
+                            </h2>
+                            </div>
                         </div>
-                        <div class="single_portfolio_content_inner">
-                        <h2 align="center">
-                            <a href="portfolio-details.html">Astronomiya bo'yicha darsliklar</a>
-                        </h2>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -533,7 +533,8 @@
                             </div>
                             <div class="section_content_text upper">
                                 <p>
-                                    Kurbanov Mirzaahmad pedagogika fanlari doktori, professor, O‘zRTFA akademigi                        </p>
+                                    Kurbanov Mirzaahmad pedagogika fanlari doktori, professor, O‘zRTFA akademigi                        
+                                </p>
                             </div>
                         </div>
                         <div class="row wow fadeInRight" data-wow-delay=".7">
