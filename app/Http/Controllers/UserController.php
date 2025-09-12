@@ -21,7 +21,7 @@ class UserController extends Controller
     }
 
     public function subjects(){
-        $subjects = Subject::all();
+        $subjects = Subject::where('is_active', 1)->orderBy('sort')->get();
         return view('user.listsubjects', compact('subjects'));
     }
 
