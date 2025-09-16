@@ -88,20 +88,24 @@ class IndexController extends Controller
 
         $result = Test_answer::where('test_id', $request->id)
             ->where('student_id', Auth::guard('api')->user()->id)
-            ->count();
-        if ($result > 0) {
-            return redirect()->route('confirmtest',['test_id' => $request->id]);
+            ->first();
+        if ($result) {
+            $test = Test::find($request->id);
+            return response()->json([
+                'test' => $test,
+                'count_answer' => $result->count_answer
+            ]);
         } else{
-        $count = Test::find($request->id)->count_question;
-        $test = Test::find($request->id);
-        $tests= Question::where('test_id', $request->id)
-            ->inRandomOrder()->limit($count)
-            ->get();
+            $count = Test::find($request->id)->count_questioncount_answer;
+            $test = Test::find($request->id);
+            $tests= Question::where('test_id', $request->id)
+                ->inRandomOrder()->limit($count)
+                ->get();
+            return response()->json([
+                'test' => $test,
+                'questions' => QuestionResource::collection($tests)
+            ]);
         }
-        return response()->json([
-            'test' => $test,
-            'questions' => QuestionResource::collection($tests)
-        ]);
     }
 
     public function api_submit(Request $request){
