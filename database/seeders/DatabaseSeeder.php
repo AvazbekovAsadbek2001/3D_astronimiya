@@ -1309,5 +1309,16 @@ class DatabaseSeeder extends Seeder
         foreach ($dates as $item) {
             District::create($item);    
         }
+
+        \App\Models\Student::create([
+            'last_name' => 'exam',
+            'first_name' => 'user',
+            'region_id' => 2,
+            'district_id' => 1,
+            'school_name' => 'text',
+            'class_name' => 'text',
+            'name' => 'user',
+            'password' => Hash::make('123456')
+        ]);
     }
 }
